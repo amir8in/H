@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="style/main.css" />
+</head>
+
+<body>
+    <!-- پس‌زمینه -->
+    <div class="background"></div>
+
+    <!-- دکمه منو موبایل -->
+    <button class="menu-toggle">☰</button>
+
+    <!-- نوار منو -->
+    <nav class="glass-nav">
+        <ul id="nav-links">
+            <li><a href="#">خانه</a></li>
+            <li><a href="#">درباره من</a></li>
+            <li><a href="#" id="open-contact">تماس</a></li>
+        </ul>
+    </nav>
+
+    <!-- محتوا -->
+    <main class="glass-box">
+        <h1>سلام، من حامد هستم</h1>
+        <p>به سایت شخصی من خوش اومدی!</p>
+        <p>در اینجا می‌تونی درباره من بدونی و به پروژه‌هام دسترسی داشته باشی.</p>
+    </main>
+
+    <!-- پاپ‌آپ تماس -->
+    <div id="contact-popup" class="popup">
+        <div class="popup-content">
+            <h2>تماس با من</h2>
+            <p>برای تماس مستقیم با من، روی دکمه زیر کلیک کن:</p>
+            <a href="tel:+989123456789" class="call-button">📞 تماس با حامد</a>
+            <button id="close-popup">بستن</button>
+        </div>
+    </div>
+
+    <!-- دکمه حالت شب و بازگشت به بالا -->
+    <button id="theme-toggle">🌓</button>
+    <button id="backToTop">↑</button>
+
+    <!-- اسکریپت -->
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

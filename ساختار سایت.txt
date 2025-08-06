@@ -1,0 +1,10 @@
+hamed-site/
+│
+├── index.html         ← ساختار اصلی صفحه
+├── style/
+│   └── main.css       ← طراحی گرافیکی شیشه‌ای
+├── scripts/
+│   └── main.js        ← (فعلاً خالی)
+└── assets/
+    └── images/
+        └── bg.jpg     ← پس‌زمینه (بعداً اضافه می‌کنی)
