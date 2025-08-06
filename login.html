@@ -1,289 +1,55 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 
 <head>
     <meta charset="UTF-8" />
-    <title>#</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-        body {
-            font-family: "Vazir", sans-serif;
-            background: linear-gradient(145deg, #f6f8ff, #eaeefc);
-            padding: 20px;
-            margin: 0;
-            direction: rtl;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        
-        .container,
-        .login-container {
-            background: #ffffff;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            border-radius: 16px;
-            padding: 20px;
-            max-width: 600px;
-            width: 100%;
-        }
-        
-        h2 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        
-        .input-wrapper {
-            position: relative;
-            margin-bottom: 12px;
-        }
-        
-        textarea,
-        input {
-            width: 100%;
-            font-size: 16px;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 12px;
-            resize: vertical;
-            background: #f9f9f9;
-        }
-        
-        .buttons {
-            display: flex;
-            gap: 10px;
-        }
-        
-        button.action,
-        .login-btn {
-            flex: 1;
-            padding: 10px;
-            font-size: 16px;
-            background: linear-gradient(135deg, #7b8df1, #5563d6);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        
-        .result-wrapper {
-            position: relative;
-            margin-top: 15px;
-        }
-        
-        .result {
-            background: #f4f6ff;
-            padding: 15px;
-            border-radius: 10px;
-            min-height: 60px;
-            font-size: 18px;
-            word-break: break-word;
-            white-space: pre-wrap;
-        }
-        
-        .copy-btn {
-            position: absolute;
-            left: 10px;
-            top: 10px;
-            background: #ddd;
-            border: none;
-            padding: 6px 10px;
-            font-size: 14px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        
-        .small-btn {
-            position: absolute;
-            top: 8px;
-            padding: 6px 8px;
-            font-size: 14px;
-            background: #ddd;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: 0.2s;
-            z-index: 2;
-        }
-        
-        .small-btn.paste {
-            left: 50px;
-        }
-        
-        .small-btn.clear {
-            left: 10px;
-        }
-        
-        .small-btn:hover,
-        .copy-btn:hover {
-            background: #ccc;
-        }
-        
-        .hidden {
-            display: none;
-        }
-        
-        @media (max-width: 500px) {
-            textarea {
-                height: 100px;
-                font-size: 14px;
-            }
-            .result {
-                font-size: 16px;
-            }
-            button.action {
-                font-size: 14px;
-                padding: 8px;
-            }
-        }
-    </style>
+    <title>ورود</title>
+    <link rel="stylesheet" href="style/login.css" />
 </head>
 
 <body>
+    <!-- نوار شیشه‌ای بالا -->
+    <nav class="glass-navbar">
+        <div class="logo">🔷</div>
+        <ul class="nav-links">
+            <li><a href="index.html">خانه</a></li>
+            <img src="assets/logo.png" alt="لوگوی من" class="site-logo" />
+        </ul>
+    </nav>
 
-    <!-- صفحه لاگین -->
-    <div class="login-container" id="loginPage">
-        <h2>ورود به برنامه</h2>
+    <!-- پس‌زمینه اختصاصی برای صفحه ورود -->
+    <div class="background"></div>
+    <!-- لوگو خارج از نوار -->
+    <div class="logo">
+        <a href="index.html">
+            <img src="assets/logo.png" alt="لوگوی من" class="site-logo" />
+        </a>
+    </div>
+    <!-- فرم ورود در جعبه شیشه‌ای -->
+    <main class="glass-box">
+        <h2>ورود به سیستم</h2>
         <input type="text" id="username" placeholder="نام کاربری" />
-        <br /><br />
         <input type="password" id="password" placeholder="رمز عبور" />
-        <br /><br />
-        <button class="login-btn" onclick="checkLogin()">ورود</button>
-        <p id="loginError" style="color:red; text-align:center;"></p>
+        <button onclick="login()">ورود</button>
+        <p id="loginError" class="error-text"></p>
+    </main>
+
+    <!-- صفحه اصلی برنامه (بعد از ورود موفق) -->
+    <div id="mainApp" class="hidden glass-box">
+        <h2>🎉 خوش اومدی!</h2>
+        <textarea id="textInput" placeholder="متن خودتو وارد کن..."></textarea>
+        <div class="button-group">
+            <button onclick="encodeText()">رمزگذاری</button>
+            <button onclick="decodeText()">رمزگشایی</button>
+            <button class="copy-btn" onclick="copyToClipboard()">📋 کپی</button>
+            <button onclick="clearText()">🗑 پاک‌کردن</button>
+            <button onclick="pasteText()">📥 چسباندن</button>
+        </div>
+        <pre id="resultBox">اینجا نتیجه نمایش داده میشه...</pre>
     </div>
 
-    <!-- محتوای اصلی -->
-    <div class="container hidden" id="mainApp">
-        <h2>#</h2>
-
-        <div class="input-wrapper">
-            <textarea id="textInput" placeholder="متن خود را اینجا وارد کنید..."></textarea>
-            <button class="copy-btn small-btn paste" onclick="pasteText()">📋</button>
-            <button class="copy-btn small-btn clear" onclick="clearText()">🗑️</button>
-        </div>
-
-        <div class="buttons">
-            <button class="action" onclick="encodeText()">رمزیش..</button>
-            <button class="action" onclick="decodeText()">فارسیش..</button>
-        </div>
-
-        <div class="result-wrapper">
-            <button class="copy-btn" onclick="copyToClipboard()">📋</button>
-            <div class="result" id="resultBox">🔽 نتیجه اینجا نمایش داده می‌شود</div>
-        </div>
-    </div>
-
-    <script>
-        function checkLogin() {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-            if (username === "all" && password === "1399") {
-                document.getElementById("loginPage").style.display = "none";
-                document.getElementById("mainApp").classList.remove("hidden");
-            } else {
-                document.getElementById("loginError").innerText = "نام کاربری یا رمز اشتباه است!";
-            }
-        }
-
-        const dict = {
-            "ا": "@1",
-            "ب": "B#",
-            "پ": "P*",
-            "ت": "^7",
-            "ث": "&4",
-            "ج": "J1",
-            "چ": "C+",
-            "ح": "H-",
-            "خ": "X!",
-            "د": "D0",
-            "ذ": "Z%",
-            "ر": "R&",
-            "ز": "Z*",
-            "ژ": "ZH$",
-            "س": "S~",
-            "ش": "SH@",
-            "ص": "S!",
-            "ض": "Z!",
-            "ط": "T=",
-            "ظ": "Z=",
-            "ع": "E^",
-            "غ": "GH#",
-            "ف": "F*",
-            "ق": "Q@",
-            "ک": "K+",
-            "گ": "G~",
-            "ل": "L_",
-            "م": "M3",
-            "ن": "F2",
-            "و": "V0",
-            "ه": "H0",
-            "ی": "Y1",
-            " ": " "
-        };
-
-        const reverseDict = {};
-        for (let key in dict) reverseDict[dict[key]] = key;
-        const encodedKeys = Object.keys(reverseDict).sort((a, b) => b.length - a.length);
-
-        function encodeText() {
-            const input = document.getElementById("textInput").value;
-            let output = "";
-            for (let char of input) output += dict[char] || char;
-            document.getElementById("resultBox").innerText = output || "هیچی وارد نکردی!";
-        }
-
-        function decodeText() {
-            const input = document.getElementById("textInput").value;
-            let result = "",
-                i = 0;
-            while (i < input.length) {
-                let matched = false;
-                for (let key of encodedKeys) {
-                    if (input.substr(i, key.length) === key) {
-                        result += reverseDict[key];
-                        i += key.length;
-                        matched = true;
-                        break;
-                    }
-                }
-                if (!matched) {
-                    result += input[i];
-                    i++;
-                }
-            }
-            document.getElementById("resultBox").innerText = result || "هیچی وارد نکردی!";
-        }
-
-        function copyToClipboard() {
-            const text = document.getElementById("resultBox").innerText;
-            const textarea = document.createElement("textarea");
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand("copy");
-            document.body.removeChild(textarea);
-            const btn = document.querySelector('.copy-btn:not(.small-btn)');
-            const original = btn.innerText;
-            btn.innerText = "✅ کپی شد";
-            setTimeout(() => {
-                btn.innerText = original;
-            }, 1500);
-        }
-
-        function clearText() {
-            document.getElementById("textInput").value = "";
-        }
-
-        async function pasteText() {
-            try {
-                const text = await navigator.clipboard.readText();
-                document.getElementById("textInput").value = text;
-            } catch (err) {
-                alert("دسترسی به کلیپ‌بورد ممکن نیست.");
-            }
-        }
-    </script>
+    <script src="scripts/login.js"></script>
 </body>
 
 </html>
