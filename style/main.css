@@ -13,49 +13,6 @@ body {
 }
 
 
-/* دکمه منوی موبایل (آیکون سه خطی) */
-
-.menu-icon {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 9999;
-    /* روی همه چیز قرار می‌گیره */
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(8px);
-    border: none;
-    padding: 10px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.menu-icon span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 5px 0;
-    border-radius: 3px;
-}
-
-
-/* منوی باز شده */
-
-.menu {
-    z-index: 9998;
-    /* زیر دکمه همبرگری ولی بالاتر از بقیه */
-    position: fixed;
-    top: 70px;
-    left: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 15px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-
 /* پس‌زمینه */
 
 .background {
@@ -70,35 +27,71 @@ body {
 }
 
 
-/* منو شیشه‌ای */
+/* لوگو خارج از نوار */
+
+.logo {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    z-index: 1100;
+}
+
+.site-logo {
+    height: 120px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+.site-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+}
+
+
+/* نوار منو شیشه‌ای */
 
 .glass-nav {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
+    height: 70px;
+    /* ارتفاع ثابت */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
 }
 
 .glass-nav ul {
     display: flex;
-    justify-content: center;
     list-style: none;
-    padding: 15px 0;
-    gap: 30px;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
 }
 
-.glass-nav a {
+.glass-nav ul li a {
     color: white;
     text-decoration: none;
     padding: 8px 16px;
     border-radius: 10px;
     transition: background 0.3s ease;
+    display: block;
+    font-weight: 600;
 }
 
-.glass-nav a:hover {
+.glass-nav ul li a:hover {
     background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* دکمه منو موبایل - در صورت نیاز */
+
+.menu-toggle {
+    display: none;
 }
 
 
@@ -126,25 +119,7 @@ p {
 }
 
 
-/* دکمه منو موبایل */
-
-.menu-toggle {
-    display: none;
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    font-size: 24px;
-    padding: 10px 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    z-index: 2000;
-    backdrop-filter: blur(10px);
-}
-
-
-/* دکمه شب و بالا */
+/* دکمه حالت شب و بازگشت به بالا */
 
 #theme-toggle,
 #backToTop {
@@ -168,37 +143,6 @@ p {
     bottom: 20px;
     left: 15px;
     display: none;
-}
-
-
-/* ریسپانسیو */
-
-@media (max-width: 768px) {
-    .glass-nav ul {
-        flex-direction: column;
-        gap: 10px;
-        padding: 10px 0;
-        display: none;
-    }
-    .glass-nav ul.active {
-        display: flex;
-    }
-    .menu-toggle {
-        display: block;
-    }
-    .glass-box {
-        margin: 20px 10px;
-        padding: 20px 15px;
-    }
-    h1 {
-        font-size: 1.5em;
-    }
-    h2 {
-        font-size: 1.2em;
-    }
-    p {
-        font-size: 1em;
-    }
 }
 
 
