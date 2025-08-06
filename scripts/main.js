@@ -1,33 +1,42 @@
-// منو موبایل
-document.querySelector('.menu-toggle').addEventListener('click', () => {
-    document.getElementById('nav-links').classList.toggle('active');
-});
+document.addEventListener("DOMContentLoaded", function() {
+    const contactLink = document.getElementById("contactLink");
+    const popup = document.getElementById("contact-popup");
+    const closePopup = document.getElementById("close-popup");
 
-// دکمه حالت شب
-document.getElementById('theme-toggle').addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-});
+    if (contactLink && popup && closePopup) {
+        contactLink.addEventListener("click", function(e) {
+            e.preventDefault(); // جلوگیری از پرش صفحه
+            popup.style.display = "flex";
+        });
 
-// دکمه بازگشت به بالا
-const backToTopBtn = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        backToTopBtn.style.display = 'block';
-    } else {
-        backToTopBtn.style.display = 'none';
+        closePopup.addEventListener("click", function() {
+            popup.style.display = "none";
+        });
     }
-});
 
-backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+    // حالت شب
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+    });
 
-// پاپ‌آپ تماس
-document.getElementById('open-contact').addEventListener('click', (e) => {
-    e.preventDefault();
-    document.getElementById('contact-popup').style.display = 'flex';
-});
+    // دکمه برگشت به بالا
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            backToTop.style.display = "block";
+        } else {
+            backToTop.style.display = "none";
+        }
+    });
 
-document.getElementById('close-popup').addEventListener('click', () => {
-    document.getElementById('contact-popup').style.display = 'none';
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // باز و بسته شدن منو در موبایل
+    window.toggleMenu = function() {
+        const navLinks = document.querySelector(".nav-links");
+        navLinks.classList.toggle("active");
+    };
 });
