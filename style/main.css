@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    direction: rtl;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+
+/* پس‌زمینه */
+
+.background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('../assets/images/bg.jpg') no-repeat center center/cover;
+    z-index: -1;
+    filter: blur(4px);
+}
+
+
+/* منو شیشه‌ای */
+
+.glass-nav {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.glass-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 15px 0;
+    gap: 30px;
+}
+
+.glass-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.glass-nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* باکس شیشه‌ای محتوا */
+
+.glass-box {
+    max-width: 900px;
+    margin: 60px auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+h1,
+h2 {
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+
+/* دکمه منو موبایل */
+
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    font-size: 24px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 2000;
+    backdrop-filter: blur(10px);
+}
+
+
+/* دکمه شب و بالا */
+
+#theme-toggle,
+#backToTop {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+#theme-toggle {
+    bottom: 80px;
+    left: 15px;
+}
+
+#backToTop {
+    bottom: 20px;
+    left: 15px;
+    display: none;
+}
+
+
+/* ریسپانسیو */
+
+@media (max-width: 768px) {
+    .glass-nav ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0;
+        display: none;
+    }
+    .glass-nav ul.active {
+        display: flex;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .glass-box {
+        margin: 20px 10px;
+        padding: 20px 15px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    h2 {
+        font-size: 1.2em;
+    }
+    p {
+        font-size: 1em;
+    }
+}
+
+
+/* حالت شب */
+
+body.dark {
+    background-color: #111;
+    color: #eee;
+}
+
+body.dark .glass-nav,
+body.dark .glass-box {
+    background: rgba(0, 0, 0, 0.4);
+    color: #eee;
+}
+
+body.dark a {
+    color: #91dfff;
+}
+
+
+/* پاپ‌آپ تماس */
+
+.popup {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+
+.popup-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    color: #fff;
+    max-width: 90%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.call-button {
+    display: inline-block;
+    margin: 15px 0;
+    padding: 10px 20px;
+    background: rgba(0, 255, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    color: #00ff88;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.call-button:hover {
+    background: rgba(0, 255, 0, 0.3);
+    color: #ffffff;
+}
+
+#close-popup {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+#close-popup:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
