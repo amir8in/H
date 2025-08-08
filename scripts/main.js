@@ -1,11 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const contactLink = document.getElementById("contactLink");
+    // ------------------------------
+    // پاپ‌آپ تماس با من
+    // ------------------------------
+    const contactLink = document.getElementById("contact-link");
     const popup = document.getElementById("contact-popup");
     const closePopup = document.getElementById("close-popup");
 
     if (contactLink && popup && closePopup) {
         contactLink.addEventListener("click", function(e) {
-            e.preventDefault(); // جلوگیری از پرش صفحه
+            e.preventDefault();
             popup.style.display = "flex";
         });
 
@@ -14,29 +17,72 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // حالت شب
+    // ------------------------------
+    // حالت شب/روز
+    // ------------------------------
     const themeToggle = document.getElementById("theme-toggle");
-    themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-    });
 
+    if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+        });
+    }
+
+    // ------------------------------
     // دکمه برگشت به بالا
+    // ------------------------------
     const backToTop = document.getElementById("backToTop");
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-            backToTop.style.display = "block";
-        } else {
-            backToTop.style.display = "none";
-        }
-    });
 
-    backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    if (backToTop) {
+        window.addEventListener("scroll", () => {
+            backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+        });
 
-    // باز و بسته شدن منو در موبایل
-    window.toggleMenu = function() {
-        const navLinks = document.querySelector(".nav-links");
-        navLinks.classList.toggle("active");
-    };
+        backToTop.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+
+    // ------------------------------
+    // فرم پشتیبانی - باز و بسته شدن
+    // ------------------------------
+    const supportBtn = document.getElementById("supportBtn");
+    const supportForm = document.getElementById("supportForm");
+
+    if (supportBtn && supportForm) {
+        supportBtn.addEventListener("click", () => {
+            supportForm.classList.remove("hidden");
+        });
+
+        // بسته شدن فرم با کلیک بیرون از آن
+        document.addEventListener("click", function(e) {
+            if (!supportForm.contains(e.target) &&
+                e.target !== supportBtn &&
+                !supportBtn.contains(e.target)
+            ) {
+                supportForm.classList.add("hidden");
+            }
+        });
+    }
+
+    // ------------------------------
+    // منوی موبایل (در صورت استفاده)
+    // ------------------------------
+    const menuToggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector(".glass-nav ul");
+
+    if (menuToggle && nav) {
+        menuToggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+    }
+});
+// پاپ‌آپ تماس
+document.getElementById("contact-link").addEventListener("click", function(e) {
+    e.preventDefault();
+    document.getElementById("contact-popup").style.display = "block";
+});
+
+document.getElementById("close-popup").addEventListener("click", function() {
+    document.getElementById("contact-popup").style.display = "none";
 });
