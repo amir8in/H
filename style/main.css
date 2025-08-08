@@ -1,1 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    direction: rtl;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+
+/* پس‌زمینه */
+
+.background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('../assets/images/bg.jpg') no-repeat center center/cover;
+    z-index: -1;
+    filter: blur(4px);
+}
+
+.popup .social-links {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.popup .social-links a {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 10px;
+    border-radius: 10px;
+    transition: background 0.3s;
+    text-align: center;
+    font-weight: bold;
+}
+
+.popup .social-links a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #000;
+}
+
+
+/* نوار منو شیشه‌ای */
+
+.glass-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 70px;
+    /* ارتفاع ثابت */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.glass-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.glass-nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+    display: block;
+    font-weight: 600;
+}
+
+.glass-nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* دکمه منو موبایل - در صورت نیاز */
+
+.menu-toggle {
+    display: none;
+}
+
+
+/* باکس شیشه‌ای محتوا */
+
+.glass-box {
+    max-width: 900px;
+    margin: 60px auto;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+h1,
+h2 {
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+
+/* دکمه حالت شب و بازگشت به بالا */
+
+#theme-toggle,
+#backToTop {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+#theme-toggle {
+    bottom: 80px;
+    left: 15px;
+}
+
+#backToTop {
+    bottom: 20px;
+    left: 15px;
+    display: none;
+}
+
+
+/* حالت شب */
+
+body.dark {
+    background-color: #111;
+    color: #eee;
+}
+
+body.dark .glass-nav,
+body.dark .glass-box {
+    background: rgba(0, 0, 0, 0.4);
+    color: #eee;
+}
+
+body.dark a {
+    color: #91dfff;
+}
+
+
+/* پاپ‌آپ تماس */
+
+.popup {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+
+.popup-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    color: #fff;
+    max-width: 90%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.call-button {
+    display: inline-block;
+    margin: 15px 0;
+    padding: 10px 20px;
+    background: rgba(0, 255, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    color: #00ff88;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.call-button:hover {
+    background: rgba(0, 255, 0, 0.3);
+    color: #ffffff;
+}
+
+#close-popup {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+#close-popup:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.logo {
+    position: fixed;
+    bottom: 100px;
+    /* فاصله از پایین */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1100;
+}
+
+.glass-support-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50px;
+    padding: 12px 20px;
+    color: white;
+    font-weight: bold;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+.glass-support-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.support-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    z-index: 3000;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.support-modal textarea {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: none;
+    resize: none;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+.support-modal button:hover {
+    background: rgba(255, 255, 255, 0.4);
+    color: #000;
+}
+
+.support-modal button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.glass-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 30px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.popup-content {
+    animation: fadeIn 0.3s ease-out;
+}
+
+#theme-toggle,
+#backToTop {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.popup .call-box {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+}
+
+.popup .call-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: rgba(0, 123, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.popup .call-button:hover {
+    background: rgba(0, 123, 255, 0.4);
+    color: #000;
+}
+
+.site-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+}
+
+body.dark .site-logo {
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.4));
+}
+
+.site-logo {
+    width: 300px;
+    /* اندازه عرض لوگو */
+    height: auto;
+    /* ارتفاع به تناسب تنظیم میشه */
+}
+
+.glass-navbar .logo {
+    font-size: 24px;
+}
+
+.glass-navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.glass-navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+.glass-navbar .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+body.dark .site-logo {
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.4));
+}
 
