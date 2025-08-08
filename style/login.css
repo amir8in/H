@@ -1,1 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    direction: rtl;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('../assets/images/my-bg.jpg') no-repeat center center/cover;
+    filter: blur(6px);
+    z-index: -1;
+}
+
+.glass-box {
+    max-width: 600px;
+    margin: 100px auto;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+}
+
+button {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.button-group {
+    margin-top: 15px;
+}
+
+#resultBox {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 12px;
+    white-space: pre-wrap;
+}
+
+.hidden {
+    display: none;
+}
+
+.error-text {
+    color: #ff6b6b;
+    margin-top: 10px;
+}
+
+
+/* ریسپانسیو برای موبایل و تبلت */
+
+@media (max-width: 768px) {
+    .glass-box {
+        margin: 30px 15px;
+        padding: 25px 20px;
+    }
+    input[type="text"],
+    input[type="password"],
+    textarea {
+        font-size: 0.95em;
+        padding: 10px;
+    }
+    button {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+    #resultBox {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}
+
+
+/* نوار شیشه‌ای بالا */
+
+.glass-navbar {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+}
+
+.glass-navbar .logo {
+    font-size: 24px;
+}
+
+.glass-navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.glass-navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+.glass-navbar .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+body.dark .site-logo {
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.4));
+}
+
+
+/* لوگو خارج از نوار */
+
+.logo {
+    position: fixed;
+    bottom: 100px;
+    /* فاصله از پایین */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1100;
+}
+
+
+/* نوار منو شیشه‌ای */
+
+.glass-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 70px;
+    /* ارتفاع ثابت */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    /* وسط چین کردن محتوا */
+    align-items: center;
+}
+
+.glass-navbar .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.glass-navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.glass-navbar .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.site-logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+}
+
+body.dark .site-logo {
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.4));
+}
+
+.site-logo {
+    width: 300px;
+    /* اندازه عرض لوگو */
+    height: auto;
+    /* ارتفاع به تناسب تنظیم میشه */
+}
 
