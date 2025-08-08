@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت‌نام</title>
+    <link rel="stylesheet" href="style/signup.css">
+</head>
+
+<body>
+    <!-- نوار بالا -->
+    <nav class="glass-navbar">
+        <ul class="nav-links">
+            <li><a href="index.html">خانه</a></li>
+            <li><a href="login.html">ورود</a></li>
+        </ul>
+    </nav>
+
+    <!-- پس‌زمینه متفاوت -->
+    <div class="background"></div>
+    <div class="logo">
+        <img src="assets/logo.png" alt="لوگوی من" class="site-logo" />
+    </div>
+    <!-- فرم شیشه‌ای ثبت‌نام -->
+    <main class="glass-box">
+        <h2>فرم ثبت‌نام</h2>
+        <input type="text" id="name" placeholder="نام کامل">
+        <input type="email" id="email" placeholder="ایمیل">
+        <input type="text" id="username" placeholder="نام کاربری">
+        <input type="password" id="password" placeholder="رمز عبور">
+        <button onclick="register()">ثبت‌نام</button>
+        <p id="registerMessage" class="message-text"></p>
+    </main>
+
+    <script src="scripts/signup.js"></script>
+</body>
+
+</html>
