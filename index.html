@@ -1,1 +1,82 @@
-<h1>سلام من حامد هستم و این سایت منه متاسفانه هنوز این سایت راه اندازی نشده..<h1>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="style/main.css?v=2">
+</head>
+
+<body>
+    <!-- پس‌زمینه -->
+    <div class="background"></div>
+
+    <!-- لوگو خارج از نوار -->
+    <div class="logo">
+        <img src="assets/logo.png" alt="لوگوی من" class="site-logo" />
+    </div>
+
+    <!-- نوار منو شیشه‌ای -->
+    <nav class="glass-nav">
+        <button class="menu-toggle">☰</button>
+        <ul>
+            <li><a href="#">خانه</a></li>
+            <li><a href="#">درباره من</a></li>
+            <li><a href="#" id="contact-link">راه های ارتباطی</a></li>
+            <li><a href="login.html">ورود</a></li>
+        </ul>
+    </nav>
+
+    <!-- محتوا -->
+    <main class="glass-box">
+        <h1>سلاام👋 خوش اومدی..</h1>
+        <p>این سایت هنوز تکمیل نشده و هرشب در حال بروزرسانی هست..</p>
+        <p>هرشب بهتر از دیشب...</p>
+        <p>در اینجا می‌تونی درباره من بدونی و به پروژه‌هام دسترسی داشته باشی.</p>
+    </main>
+
+    <!-- پاپ‌آپ تماس -->
+    <div id="contact-popup" class="popup">
+        <div class="popup-content">
+            <h2>ارتباط با من</h2>
+            <p>میتوانید برای ارتباط با من یکی از گزینه های زیر را انتخاب کنید:</p>
+
+            <div class="social-links">
+                <a href="https://instagram.com/h_sarwar_w" target="_blank"> اینستاگرام📸</a>
+                <a href="https://t.me/h_sarwar_w" target="_blank">تلگرام💬 </a>
+                <a href="https://eitaa.com/h_sarwar_w" target="_blank">ایتا📱 </a>
+                <a href="https://rubika.ir/h_sarwar_w" target="_blank">روبیکا🌐 </a>
+            </div>
+
+            <div class="call-box">
+                <a href="tel:+989045949162" class="call-button">تماس مستقیم 📞</a>
+            </div>
+
+            <button id="close-popup">بستن</button>
+        </div>
+    </div>
+
+
+
+    <!-- دکمه حالت شب و بازگشت به بالا -->
+    <button id="theme-toggle">🌓</button>
+    <button id="backToTop">↑</button>
+    <!-- دکمه پشتیبانی -->
+    <button id="supportBtn" class="glass-support-button">پشتیبانی</button>
+
+    <!-- فرم پشتیبانی مخفی -->
+    <div id="supportForm" class="support-modal hidden">
+        <h3>ارسال پیام به پشتیبانی</h3>
+        <form id="supportMessageForm" method="POST" action="support.php">
+            <textarea name="message" id="supportMessage" placeholder="پیام خود را بنویسید..." required></textarea>
+            <button type="submit">ارسال</button>
+        </form>
+    </div>
+
+
+    <!-- فایل جاوااسکریپت -->
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
